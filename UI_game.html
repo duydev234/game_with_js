@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubble Game</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.js"></script>
+</head>
+<body>
+
+<script>
+    const config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: {
+            preload: preload,
+            create: create,
+            update: update
+        }
+    };
+
+    const game = new Phaser.Game(config);
+
+    function preload () {
+        this.load.image('bubble', 'bubble.png');
+    }
+
+    function create () {
+        const bubble = this.add.image(400, 300, 'bubble');
+        bubble.setInteractive();
+        bubble.on('pointerdown', function (pointer) {
+            this.setTint(0xff0000);
+        });
+    }
+
+    function update () {
+    }
+</script>
+
+</body>
+</html>
